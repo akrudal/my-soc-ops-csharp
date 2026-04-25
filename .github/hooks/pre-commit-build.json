@@ -1,0 +1,16 @@
+{
+  "on": "PreCommit",
+  "preventCommitIfFails": true,
+  "commands": [
+    {
+      "name": "dotnet-build-check",
+      "description": "Verify the project builds without errors before commit",
+      "command": "bash",
+      "args": [
+        "-c",
+        "cd SocOps && dotnet build --no-restore -q 2>&1"
+      ],
+      "failureMessage": "❌ Build failed! Please fix compilation errors before committing. Run: dotnet build SocOps/SocOps.csproj"
+    }
+  ]
+}
